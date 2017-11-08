@@ -1,0 +1,101 @@
+<html>
+
+<head>
+  <title>Quick Links &middot; Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" >
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+
+  <style>
+    body {
+      margin: 100px;
+    }
+
+    .col-lg-4 {
+      position: relative;
+      padding-bottom: 50px;
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .col-lg-4 .btn{
+      margin-top: 10px;
+    }
+
+    .col-lg-4 h2{
+      margin-top: 10px;
+  
+    }
+
+    .col-lg-4 i {
+      color: #777;
+    }
+  </style>
+
+</head>
+
+<body ng-app="myApp" ng-controller="mainController">
+  <div class="row">
+    <h1><i class="fa fa-paper-plane-o fa-2x"></i>Resources:</h1>
+  </div>
+  <hr>
+  <div class="row">
+    <div ng-repeat="resource in resources" class="col-lg-4">
+      <h2>{{ resource.name }}</h2>
+      <i class="fa {{ resource.icon }} fa-5x"></i>
+			<p><a class="btn btn-primary" href="{{ resource.link }}" role="button" target="_blank">Go to page! &raquo;</a></p>
+    </div>
+  </div>
+</body>
+
+<script>
+angular.module("myApp", []).controller("mainController", function($scope) {
+  $scope.resources = [
+    {
+      "name": "G-Mail",
+      "icon": "fa-envelope-o",
+      "link": "https://mail.google.com/mail/u/0/#inbox"
+    },
+    {
+      "name": "Calendar",
+      "icon": "fa-calendar",
+      "link": "https://calendar.google.com/calendar/render?tab=mc&pli=1#main_7"
+    },
+    {
+      "name": "Books",
+      "icon": "fa-book",
+      "link":
+        "https://drive.google.com/drive/folders/0B8CWStbkDobfajJqVGhQaEdyV0U"
+    },
+    {
+      "name": "6.042",
+      "icon": "fa-university",
+      "link":
+        "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2015/readings/"
+    },
+    {
+      "name": "6.004",
+      "icon": "fa-university",
+      "link":
+        "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-004-computation-structures-spring-2009"
+    },
+    {
+      "name": "6.006",
+      "icon": "fa-university",
+      "link":
+        "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/readings/"
+    },
+    {
+      "name": "6.034",
+      "icon": "fa-university",
+      "link":
+        "https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/readings/"
+    }
+  ];
+});
+
+</script>
+
+</html>
